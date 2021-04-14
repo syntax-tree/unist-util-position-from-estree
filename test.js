@@ -15,7 +15,7 @@ test('unist-util-position-from-estree', function (t) {
   )
 
   t.deepEqual(
-    positionFromEstree(parse('x')),
+    positionFromEstree(parse('x', {ecmaVersion: 2020})),
     {
       start: {line: null, column: null, offset: 0},
       end: {line: null, column: null, offset: 1}
@@ -24,7 +24,7 @@ test('unist-util-position-from-estree', function (t) {
   )
 
   t.deepEqual(
-    positionFromEstree(parse('x', {locations: true})),
+    positionFromEstree(parse('x', {ecmaVersion: 2020, locations: true})),
     {
       start: {line: 1, column: 1, offset: 0},
       end: {line: 1, column: 2, offset: 1}
@@ -33,7 +33,7 @@ test('unist-util-position-from-estree', function (t) {
   )
 
   t.deepEqual(
-    positionFromEstree(parse('x', {ranges: true})),
+    positionFromEstree(parse('x', {ecmaVersion: 2020, ranges: true})),
     {
       start: {line: null, column: null, offset: 0},
       end: {line: null, column: null, offset: 1}
