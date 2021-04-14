@@ -12,13 +12,14 @@
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
 npm install unist-util-position-from-estree
 ```
-
-Note that this package is ESM only: it must be imported instead of required.
 
 ## Use
 
@@ -53,8 +54,7 @@ Yields:
 
 ## API
 
-`unist-util-position-from-estree` exports the following identifiers:
-[`positionFromEstree`](#positionfromestreenode).
+This package exports the following identifiers: `positionFromEstree`.
 There is no default export.
 
 ### `positionFromEstree(node)`
