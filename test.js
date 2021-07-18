@@ -2,7 +2,7 @@ import test from 'tape'
 import {parse} from 'acorn'
 import {positionFromEstree} from './index.js'
 
-test('unist-util-position-from-estree', function (t) {
+test('unist-util-position-from-estree', (t) => {
   t.deepEqual(
     positionFromEstree(),
     {

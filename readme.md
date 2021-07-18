@@ -28,7 +28,10 @@ import {parse} from 'acorn'
 import {positionFromEstree} from 'unist-util-position-from-estree'
 
 // Make acorn support line/column.
-var node = parse('function x() { console.log(1) }', {locations: true})
+const node = parse('function x() { console.log(1) }', {
+  ecmaVersion: 2020,
+  locations: true
+})
 
 console.log(positionFromEstree(node)) // `Program`
 console.log(positionFromEstree(node.body[0].id)) // `x`

@@ -25,13 +25,13 @@
  */
 export function positionFromEstree(value) {
   /** @type {NodeLike} */
-  var node = value || {}
+  const node = value || {}
   /** @type {LocLike} */
-  var loc = node.loc || {}
+  const loc = node.loc || {}
   /** @type {RangeLike} */
-  var range = node.range || [0, 0]
-  var startOffset = range[0] || node.start
-  var endOffset = range[1] || node.end
+  const range = node.range || [0, 0]
+  const startOffset = range[0] || node.start
+  const endOffset = range[1] || node.end
 
   return {
     start: {
