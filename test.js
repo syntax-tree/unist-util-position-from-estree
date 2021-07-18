@@ -1,5 +1,3 @@
-'use strict'
-
 import test from 'tape'
 import {parse} from 'acorn'
 import {positionFromEstree} from './index.js'
