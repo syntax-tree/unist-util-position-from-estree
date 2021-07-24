@@ -3,19 +3,19 @@
  *
  * @typedef {[number, number]} RangeLike
  *
- * @typedef {Object} PointLike
- * @property {number} [line]
- * @property {number} [column]
+ * @typedef PointLike
+ * @property {number|null|undefined} [line]
+ * @property {number|null|undefined} [column]
  *
- * @typedef {Object} LocLike
- * @property {PointLike} [start]
- * @property {PointLike} [end]
+ * @typedef LocLike
+ * @property {PointLike|null|undefined} [start]
+ * @property {PointLike|null|undefined} [end]
  *
- * @typedef {Object} NodeLike
- * @property {LocLike} [loc]
- * @property {RangeLike} [range]
- * @property {number} [start]
- * @property {number} [end]
+ * @typedef NodeLike
+ * @property {LocLike|null|undefined} [loc]
+ * @property {RangeLike|null|undefined} [range]
+ * @property {number|null|undefined} [start]
+ * @property {number|null|undefined} [end]
  */
 
 /**
@@ -37,29 +37,34 @@ export function positionFromEstree(value) {
     start: {
       // @ts-expect-error: return no point / no position next major.
       line:
-        loc.start && loc.start.line !== undefined && loc.start.line > -1
+        loc.start && typeof loc.start.line === 'number' && loc.start.line > -1
           ? loc.start.line
           : undefined,
       // @ts-expect-error: return no point / no position next major.
       column:
-        loc.start && loc.start.column !== undefined && loc.start.column > -1
+        loc.start &&
+        typeof loc.start.column === 'number' &&
+        loc.start.column > -1
           ? loc.start.column + 1
           : undefined,
       offset:
-        startOffset !== undefined && startOffset > -1 ? startOffset : undefined
+        typeof startOffset === 'number' && startOffset > -1
+          ? startOffset
+          : undefined
     },
     end: {
       // @ts-expect-error: return no point / no position next major.
       line:
-        loc.end && loc.end.line !== undefined && loc.end.line > -1
+        loc.end && typeof loc.end.line === 'number' && loc.end.line > -1
           ? loc.end.line
           : undefined,
       // @ts-expect-error: return no point / no position next major.
       column:
-        loc.end && loc.end.column !== undefined && loc.end.column > -1
+        loc.end && typeof loc.end.column === 'number' && loc.end.column > -1
           ? loc.end.column + 1
           : undefined,
-      offset: endOffset !== undefined && endOffset > -1 ? endOffset : undefined
+      offset:
+        typeof endOffset === 'number' && endOffset > -1 ? endOffset : undefined
     }
   }
 }
