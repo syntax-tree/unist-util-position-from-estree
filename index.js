@@ -35,14 +35,31 @@ export function positionFromEstree(value) {
 
   return {
     start: {
-      line: loc.start && loc.start.line > -1 ? loc.start.line : null,
-      column: loc.start && loc.start.column > -1 ? loc.start.column + 1 : null,
-      offset: startOffset > -1 ? startOffset : null
+      // @ts-expect-error: return no point / no position next major.
+      line:
+        loc.start && loc.start.line !== undefined && loc.start.line > -1
+          ? loc.start.line
+          : undefined,
+      // @ts-expect-error: return no point / no position next major.
+      column:
+        loc.start && loc.start.column !== undefined && loc.start.column > -1
+          ? loc.start.column + 1
+          : undefined,
+      offset:
+        startOffset !== undefined && startOffset > -1 ? startOffset : undefined
     },
     end: {
-      line: loc.end && loc.end.line > -1 ? loc.end.line : null,
-      column: loc.end && loc.end.column > -1 ? loc.end.column + 1 : null,
-      offset: endOffset > -1 ? endOffset : null
+      // @ts-expect-error: return no point / no position next major.
+      line:
+        loc.end && loc.end.line !== undefined && loc.end.line > -1
+          ? loc.end.line
+          : undefined,
+      // @ts-expect-error: return no point / no position next major.
+      column:
+        loc.end && loc.end.column !== undefined && loc.end.column > -1
+          ? loc.end.column + 1
+          : undefined,
+      offset: endOffset !== undefined && endOffset > -1 ? endOffset : undefined
     }
   }
 }

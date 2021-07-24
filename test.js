@@ -6,8 +6,8 @@ test('unist-util-position-from-estree', (t) => {
   t.deepEqual(
     positionFromEstree(),
     {
-      start: {line: null, column: null, offset: null},
-      end: {line: null, column: null, offset: null}
+      start: {line: undefined, column: undefined, offset: undefined},
+      end: {line: undefined, column: undefined, offset: undefined}
     },
     'should support a missing node'
   )
@@ -15,8 +15,8 @@ test('unist-util-position-from-estree', (t) => {
   t.deepEqual(
     positionFromEstree(parse('x', {ecmaVersion: 2020})),
     {
-      start: {line: null, column: null, offset: 0},
-      end: {line: null, column: null, offset: 1}
+      start: {line: undefined, column: undefined, offset: 0},
+      end: {line: undefined, column: undefined, offset: 1}
     },
     'should support node w/o `loc`s'
   )
@@ -33,8 +33,8 @@ test('unist-util-position-from-estree', (t) => {
   t.deepEqual(
     positionFromEstree(parse('x', {ecmaVersion: 2020, ranges: true})),
     {
-      start: {line: null, column: null, offset: 0},
-      end: {line: null, column: null, offset: 1}
+      start: {line: undefined, column: undefined, offset: 0},
+      end: {line: undefined, column: undefined, offset: 1}
     },
     'should support node w/ `range`s'
   )
