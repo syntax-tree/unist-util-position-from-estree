@@ -20,7 +20,7 @@
 
 /**
  * Given an estree `node`, returns a unist `position`.
- * @param {NodeLike} [value]
+ * @param {NodeLike|null} [value]
  * @returns {Position}
  */
 export function positionFromEstree(value) {
