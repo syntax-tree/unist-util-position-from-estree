@@ -1,9 +1,10 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {parse} from 'acorn'
 import {positionFromEstree} from './index.js'
 
-test('unist-util-position-from-estree', (t) => {
-  t.deepEqual(
+test('unist-util-position-from-estree', () => {
+  assert.deepEqual(
     positionFromEstree(),
     {
       start: {line: undefined, column: undefined, offset: undefined},
@@ -12,7 +13,7 @@ test('unist-util-position-from-estree', (t) => {
     'should support a missing node'
   )
 
-  t.deepEqual(
+  assert.deepEqual(
     positionFromEstree(parse('x', {ecmaVersion: 2020})),
     {
       start: {line: undefined, column: undefined, offset: 0},
@@ -21,7 +22,7 @@ test('unist-util-position-from-estree', (t) => {
     'should support node w/o `loc`s'
   )
 
-  t.deepEqual(
+  assert.deepEqual(
     positionFromEstree(parse('x', {ecmaVersion: 2020, locations: true})),
     {
       start: {line: 1, column: 1, offset: 0},
@@ -30,7 +31,7 @@ test('unist-util-position-from-estree', (t) => {
     'should support node w/ `loc`s'
   )
 
-  t.deepEqual(
+  assert.deepEqual(
     positionFromEstree(parse('x', {ecmaVersion: 2020, ranges: true})),
     {
       start: {line: undefined, column: undefined, offset: 0},
@@ -38,6 +39,4 @@ test('unist-util-position-from-estree', (t) => {
     },
     'should support node w/ `range`s'
   )
-
-  t.end()
 })
