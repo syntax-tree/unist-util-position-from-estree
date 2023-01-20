@@ -2,8 +2,15 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import {parse} from 'acorn'
 import {positionFromEstree} from './index.js'
+import * as mod from './index.js'
 
-test('unist-util-position-from-estree', () => {
+test('positionFromEstree', () => {
+  assert.deepEqual(
+    Object.keys(mod).sort(),
+    ['positionFromEstree'],
+    'should expose the public api'
+  )
+
   assert.deepEqual(
     positionFromEstree(),
     {
