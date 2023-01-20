@@ -36,7 +36,7 @@ nodes.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
+In Node.js (version 14.14+ and 16.0+), install with [npm][]:
 
 ```sh
 npm install unist-util-position-from-estree
@@ -92,12 +92,21 @@ Yields:
 
 ## API
 
-This package exports the identifier `positionFromEstree`.
+This package exports the identifier [`positionFromEstree`][positionfromestree].
 There is no default export.
 
 ### `positionFromEstree(node)`
 
-Given a [`node`][estree], returns a [`position`][position].
+Turn an estree `node` into a unist `position`.
+
+###### Parameters
+
+*   `node` ([`Node`][node])
+    — estree node
+
+###### Returns
+
+unist position ([`Position`][position]).
 
 ## Types
 
@@ -108,7 +117,7 @@ It exports no additional types.
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Contribute
@@ -175,6 +184,10 @@ abide by its terms.
 
 [estree]: https://github.com/estree/estree
 
+[node]: https://github.com/estree/estree/blob/master/es5.md#node-objects
+
 [unist]: https://github.com/syntax-tree/unist
 
 [position]: https://github.com/syntax-tree/unist#position
+
+[positionfromestree]: #positionfromestreenode
