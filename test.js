@@ -13,19 +13,13 @@ test('positionFromEstree', () => {
 
   assert.deepEqual(
     positionFromEstree(),
-    {
-      start: {line: undefined, column: undefined, offset: undefined},
-      end: {line: undefined, column: undefined, offset: undefined}
-    },
+    undefined,
     'should support a missing node'
   )
 
   assert.deepEqual(
     positionFromEstree(parse('x', {ecmaVersion: 2020})),
-    {
-      start: {line: undefined, column: undefined, offset: 0},
-      end: {line: undefined, column: undefined, offset: 1}
-    },
+    undefined,
     'should support node w/o `loc`s'
   )
 
@@ -40,10 +34,21 @@ test('positionFromEstree', () => {
 
   assert.deepEqual(
     positionFromEstree(parse('x', {ecmaVersion: 2020, ranges: true})),
-    {
-      start: {line: undefined, column: undefined, offset: 0},
-      end: {line: undefined, column: undefined, offset: 1}
-    },
+    undefined,
     'should support node w/ `range`s'
+  )
+
+  assert.deepEqual(
+    positionFromEstree({loc: {start: {}, end: {}}}),
+    undefined,
+    'should handle points w/o line/column'
+  )
+
+  assert.deepEqual(
+    positionFromEstree({
+      loc: {start: {line: -1, column: -1}, end: {line: 1, column: 0}}
+    }),
+    undefined,
+    'should handle points w/ too low values'
   )
 })
