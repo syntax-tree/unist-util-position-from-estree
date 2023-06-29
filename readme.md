@@ -106,7 +106,7 @@ Turn an estree `node` into a unist `position`.
 
 ###### Returns
 
-unist position ([`Position`][position]).
+unist position, if valid ([`Position`][position] or `undefined`).
 
 ## Types
 
