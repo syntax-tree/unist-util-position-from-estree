@@ -1,13 +1,14 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {parse} from 'acorn'
-import {positionFromEstree} from './index.js'
+import {positionFromEstree} from 'unist-util-position-from-estree'
 
 test('positionFromEstree', async function (t) {
   await t.test('should expose the public api', async function () {
-    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
-      'positionFromEstree'
-    ])
+    assert.deepEqual(
+      Object.keys(await import('unist-util-position-from-estree')).sort(),
+      ['positionFromEstree']
+    )
   })
 
   await t.test('should support a missing node', async function () {
