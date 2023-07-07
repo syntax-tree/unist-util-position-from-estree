@@ -45,14 +45,14 @@ npm install unist-util-position-from-estree
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {positionFromEstree} from 'https://esm.sh/unist-util-position-from-estree@1'
+import {positionFromEstree} from 'https://esm.sh/unist-util-position-from-estree@2'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {positionFromEstree} from 'https://esm.sh/unist-util-position-from-estree@1?bundle'
+  import {positionFromEstree} from 'https://esm.sh/unist-util-position-from-estree@2?bundle'
 </script>
 ```
 
